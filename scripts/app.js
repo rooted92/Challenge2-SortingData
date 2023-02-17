@@ -41,7 +41,7 @@ const PopulateTable = (data) => {
         MakeRow(person.Id, person.FirstName, person.LastName, person.Email, person.Height, person.Age, injectRows);
     });
 }
-PopulateTable(data);
+PopulateTable(data);// Populates table with data when page loads
 
 // Event Listeners
 

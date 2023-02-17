@@ -32,18 +32,18 @@ const MakeRow = (id, firstName, lastName, email, height, age, inject) => {
 // Displays results based on user selection
 const DisplayResults = (resultValue, array) => {
     let parseValue = parseInt(resultValue);// parse string value to int
-    let numberOfPages = Math.ceil(array.length / parseValue);// get even amount of pages
+    let numberOfPages = Math.ceil(array.length / parseValue);// get rounded up number for amount of pages
     console.log('Even number pages no fraction: ' + numberOfPages);
-    let pages = [];
+    let pages = [];// initialize array that will hold page arrays
     for (let i = 0; i < array.length; i += parseValue) {
-        let page = [];
-        if (array.length < numberOfPages) {
-            page = array.slice();
-            pages.push(page);
+        let page = [];//initialize page array
+        if (array.length < parseValue) {// if people left in array is less than people required per page
+            page = array.slice();// add the rest of the array to the last page
+            pages.push(page);// add the last page to pages array
         }
-        else {
+        else {// else add number of people required per page to page array
             page = array.slice(i, i + parseValue);
-            pages.push(page);
+            pages.push(page);// then push to pages array
         }
     }
     console.log("Pages outside of for loop:");
